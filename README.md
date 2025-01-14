@@ -9,7 +9,23 @@ Siéntete libre de clonar este repositorio y utilizarlo como base para el desarr
 De igual manera puedes documentar dentro de este archivo todo lo que deseas contar sobre tu desarrollo, como por ejemplo, decisiones de diseño, problemas encontrados, etc.
 
 ## Comentarios sobre el desarrollo
-...
+
+Para el desarrollo se pensó en varios factores importantes.
+
+## Primero 
+Por tema de seguridad crear una autenticación por token para poder generar una capa de seguridad y que no cualquier persona con acceso a los endpoint pueda obtener información.
+También se crearon interfaces para el acceso seguro a los datos 
+
+## Segundo
+Se manejo una interfaz de usuario limpia y se manejo una experiencia de usuario sutil, manejando la paleta de colores y adecuación de los componentes al tamaño de las diferentes pantallas,
+
+## Tercero.
+Se realizó una estructura de carpetas que permite modularizar la aplicación pensando en su crecimiento a futuro, tomando como base los principios de clean code y la creación de componentes.
+
+
+## DEMO
+
+https://drive.google.com/file/d/1MJkc5phSr7ZWbguoWna-RI6oyvs8gup9/view?usp=sharing
 
 ## Development server
 
@@ -34,3 +50,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Build the application for production
+ng build --configuration production
+
+## Initialize Firebase (if you haven't done so before)
+firebase start
+
+## Deploy the application
+firebase deployment
