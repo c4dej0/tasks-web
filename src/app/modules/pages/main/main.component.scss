@@ -1,0 +1,115 @@
+// Estilo principal del contenedor
+.main-container {
+  padding: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+}
+
+// Estilo del botón de cerrar sesión
+.logout-container {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    display: flex;
+    align-items: center;
+
+    mat-icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+// Estilo del botón mostrar todas las tareas
+.toggle-view {
+  display: block;
+  margin: 0 auto 20px auto;
+  text-align: center;
+}
+
+// Diseño de las tarjetas
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+// Estilo de cada tarjeta
+.task-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:hover {
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      font-size: 18px;
+      margin: 0;
+    }
+  }
+
+  p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #555555;
+    &.task-email {
+      font-style: italic;
+      font-size: 12px;
+      color: #888888;
+    }
+    &.task-date {
+      font-size: 12px;
+      color: #888888;
+    }
+  }
+
+  .task-actions {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 8px;
+
+    button {
+      background: transparent;
+      color: #555555;
+
+      &:hover {
+        background: #f0f0f0;
+      }
+    }
+  }
+}
+
+// Botón de cancelar edición centrado
+.cancel-container {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+
+  button {
+    font-weight: bold;
+  }
+}
+
+// Responsividad
+@media (max-width: 600px) {
+  .task-card {
+    padding: 12px;
+  }
+}

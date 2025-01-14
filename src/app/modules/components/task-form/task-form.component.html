@@ -1,0 +1,24 @@
+   <div class="task-form">
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Título de la tarea</mat-label>
+        <input matInput formControlName="title" placeholder="Escribe el título" />
+        <mat-error *ngIf="taskForm.get('title')?.invalid && taskForm.get('title')?.touched">
+          El título es obligatorio.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput formControlName="description" placeholder="Describe la tarea"></textarea>
+        <mat-error *ngIf="taskForm.get('description')?.invalid && taskForm.get('description')?.touched">
+          La descripción es obligatoria.
+        </mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">
+        {{ taskToEdit ? 'Guardar Cambios' : 'Registrar Tarea' }}
+      </button>
+    </form>
+  </div>
+  

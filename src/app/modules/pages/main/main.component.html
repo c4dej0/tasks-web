@@ -1,0 +1,59 @@
+<div class="main-container">
+
+  <!-- Botón de cerrar sesión alineado a la derecha -->
+  <div class="logout-container">
+    <button mat-button color="warn" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      Cerrar Sesión
+    </button>
+  </div>
+
+  <h1>Mis Tareas</h1>
+
+  <!-- Botón tipo toggle para alternar entre todas las tareas o las del usuario -->
+  <mat-slide-toggle
+    class="toggle-view"
+    color="primary"
+    (change)="toggleTaskView($event)">
+    Mostrar las tareas de todos los usuarios
+  </mat-slide-toggle>
+
+  <!-- Formulario para crear/editar tarea -->
+  <app-task-form 
+    [taskToEdit]="taskToEdit" 
+    (taskSaved)="createOrUpdateTask($event)">
+  </app-task-form>
+
+  <!-- Botón para cancelar edición centrado -->
+  <div class="cancel-container" *ngIf="taskToEdit">
+    <button mat-button color="warn" (click)="cancelEdit()">Cancelar Edición</button>
+  </div>
+
+  <!-- Contenedor responsivo para las tarjetas -->
+  <div class="task-grid">
+    <div *ngFor="let task of tasks" class="task-card">
+      <div class="task-header">
+        <h2>{{ task.title }}</h2>
+        <mat-checkbox color="primary" [(ngModel)]="task.status" (change)="updateTask(task)">
+          {{ task.status ? 'Completada' : 'Pendiente' }}
+        </mat-checkbox>
+      </div>
+      <p>{{ task.description }}</p>
+      <p class="task-email">
+        {{ task.email }}
+      </p>
+      <p class="task-date">
+        Creado el: {{ task.creationDateTime._seconds * 1000 + (task.creationDateTime._nanoseconds / 1000000) | date:'dd/MM/yyyy' }}
+      </p>
+      <div class="task-actions">
+        <button mat-icon-button color="primary" (click)="editTask(task)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteTask(task.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

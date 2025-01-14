@@ -1,0 +1,25 @@
+<div class="login-container">
+  <div class="logo-container">
+    <img src="../../../../assets/images/logo-atom-chat.png" alt="Logo" class="logo" />
+  </div>
+
+  <h2>Iniciar Sesión</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Correo Electrónico</mat-label>
+      <input matInput formControlName="email" type="email" required />
+      <mat-error *ngIf="loginForm.get('email')?.invalid">
+        Correo válido requerido.
+      </mat-error>
+    </mat-form-field>
+
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
+        <mat-icon>login</mat-icon>
+        Iniciar Sesión
+      </button>
+    </div>
+  </form>
+</div>
+  
